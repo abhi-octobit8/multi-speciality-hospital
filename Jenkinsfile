@@ -9,8 +9,7 @@ pipeline {
           if (isUnix()) {
             if (fileExists('./mvnw')) {
               sh 'mvn clean'
-            } '
-            
+            }            
           } else {
             if (fileExists('mvnw.cmd')) {
               bat 'mvnw.cmd -B -DskipTests clean package'
