@@ -4,21 +4,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        script {
-          // prefer project-provided Maven wrapper when available
-          if (isUnix()) {
-            if (fileExists('./mvnw')) {
+                
               sh 'mvn clean'
               sh 'mvn package'
             }            
-          } else {
-            if (fileExists('mvnw.cmd')) {
-              bat 'mvnw.cmd -B -DskipTests clean package'
-            } else {
-              bat 'mvn -B -DskipTests clean package'
-            }
-          }
-        }
+          
       }
     }
     stage('Test') {
