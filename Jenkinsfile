@@ -9,6 +9,7 @@ pipeline {
           if (isUnix()) {
             if (fileExists('./mvnw')) {
               sh 'mvn clean'
+              sh 'mvn package'
             }            
           } else {
             if (fileExists('mvnw.cmd')) {
